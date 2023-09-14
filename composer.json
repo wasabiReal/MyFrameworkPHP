@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "wsb\\" : "vendor/wsb",
+      "app\\" : "app"
+    }
+  },
+  "require": {
+    "gabordemooij/redbean": "v5.7.4"
+  }
+}
