@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 use wsb\App;
+use app\models\Cart;
 
 class LanguageController extends AppController
 {
@@ -26,6 +27,9 @@ class LanguageController extends AppController
                         array_unshift($url_parts, $lang);
                     }
                 }
+
+                Cart::translateCart(App::$app->getProperty('languages')[$lang]);
+
                 $url = PATH . '/' . implode('/', $url_parts);
                 redirect($url);
             }

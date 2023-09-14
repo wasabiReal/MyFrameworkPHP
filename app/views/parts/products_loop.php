@@ -19,7 +19,7 @@
                         <b>$<?= $product['price'] ?></b>
                     </div>
                     <div class="product-links">
-                        <a class="add-to-cart" href="cart/add?id=<?= $product['id'] ?>" data-id="<?= $product['id'] ?>"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="add-to-cart" href="cart/add?id=<?= $product['id'] ?>" data-id="<?= $product['id'] ?>"><i class="fas fa-cart-plus"></i></a>
                         <a href="#"><i class="far fa-heart"></i></a>
                     </div>
                 </div>

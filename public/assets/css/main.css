@@ -191,6 +191,14 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
 }
 /* Header top */
 
+/* Cart Table */
+
+.cart-table img{
+	max-height: 50px;
+}
+
+/* Cart Table */
+
 /* Header bottom */
 .header-bottom{
 	background-color: #fff;
