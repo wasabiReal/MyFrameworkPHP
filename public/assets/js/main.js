@@ -37,7 +37,7 @@ $(function() {
 			url: 'cart/clear',
 			type: 'GET',
 			success: function (res){
-				showCart(res);
+				showCart(res)
 			},
 			error: function (){
 				alert('Deletion failed..');
