@@ -8,7 +8,7 @@ use wsb\View;
 <!doctype html>
 <html lang="en">
 <head>
-    <base href="<?= baseUrl(); ?>">
+    <base href="<?= base_url(); ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= PATH?>/public/assets/bootstrap/css/bootstrap.min.css">
@@ -54,8 +54,13 @@ use wsb\View;
                             <i class="far fa-user"></i>
                         </a>
                         <ul class="dropdown-menu">
+                            <?php if(empty($_SESSION['user'])): ?>
                             <li><a class="dropdown-item" href="#"><?= __('tpl_login') ?></a></li>
                             <li><a class="dropdown-item" href="#"><?= __('tpl_signup')  ?></a></li>
+                            <?php else: ?>
+                                <li><a class="dropdown-item" href="#"><?= __('tpl_cabinet') ?></a></li>
+                                <li><a class="dropdown-item" href="#"><?= __('tpl_logout')  ?></a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
 
@@ -71,7 +76,7 @@ use wsb\View;
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand" href="<?= baseUrl() ?>"><?= \wsb\App::$app->getProperty('site_name'); ?></a>
+                    <a class="navbar-brand" href="<?= base_url() ?>"><?= \wsb\App::$app->getProperty('site_name'); ?></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

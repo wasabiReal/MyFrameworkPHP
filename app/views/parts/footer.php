@@ -63,7 +63,7 @@ use wsb\View;
     </div>
 </div>
 
-<?php $this->getDatabaseLogs();?>
+<?php if(DEBUG) $this->getDatabaseLogs()?>
 <button id="top">
     <i class="fas fa-angle-double-up"></i>
 </button>

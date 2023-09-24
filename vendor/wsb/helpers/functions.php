@@ -23,7 +23,7 @@ function redirect($http = false)
     die;
 }
 
-function baseUrl()
+function base_url()
 {
     return PATH . '/' . (\wsb\App::$app->getProperty('lang') ? \wsb\App::$app->getProperty('lang') . '/' : '');
 }

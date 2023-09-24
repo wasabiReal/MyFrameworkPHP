@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Breadcrumbs;
 use app\models\Product;
 use wsb\App;
 
@@ -14,13 +15,14 @@ class ProductController extends AppController
         $product = $this->model->get_product($this->route['slug'], $lang);
 
         if(!$product){
-            throw new \Exception("Can't find {$this->route['slug']} product");
+            $this->error404();
+            return;
         }
 
-        $gallery = $this->model->get_gallery($product['id']);
-        
+        $breadcrumbs = Breadcrumbs::get_breadcrumbs($product['category_id'], $product['title']);
 
-//        $this->setMeta($product['title'], $product['description'], $product['keywords']);
-        $this->set(compact('product', 'gallery'));
+        $gallery = $this->model->get_gallery($product['id']);
+        $this->setMeta($product['title'], $product['description'], $product['keywords']);
+        $this->set(compact('product', 'gallery', 'breadcrumbs'));
     }
 }
