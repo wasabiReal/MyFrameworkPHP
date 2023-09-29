@@ -86,6 +86,10 @@ $(function() {
 		});
 	});
 
+	$('#input-sort').on('change', function (){
+		window.location = PATH + window.location.pathname + '?' + $(this).val();
+	});
+
 	// Cart
 
 	$('.open-search').click(function(e) {

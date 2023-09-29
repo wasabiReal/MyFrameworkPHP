@@ -19,8 +19,8 @@ class Category extends AppModel
         $categories = App::$app->getProperty("categories_{$lang}");
         $ids = '';
 
-        foreach ($categories as $k => $v){
-            if($v['parent_id'] == $id){
+        foreach ($categories as $k => $v) {
+            if ($v['parent_id'] == $id) {
                 $ids .= $k . ',';
                 $ids .= $this->get_ids($k);
             }
@@ -30,7 +30,20 @@ class Category extends AppModel
 
     public function get_products($ids, $lang, $start, $perpage): array
     {
-        return R::getAll("SELECT p.*, pd.* FROM product p JOIN product_description pd on p.id = pd.product_id WHERE p.status = 1 AND p.category_id IN ($ids) AND pd.language_id = ? LIMIT $start, $perpage", [$lang['id']]);
+        $sort_values = [
+            'title_asc' => 'ORDER BY title ASC',
+            'title_desc' => 'ORDER BY title DESC',
+            'price_asc' => 'ORDER BY price ASC',
+            'price_desc' => 'ORDER BY price DESC',
+        ];
+
+        $order_buy = '';
+        if(isset($_GET['sort']) && array_key_exists($_GET['sort'], $sort_values)){
+            $order_buy = $sort_values[$_GET['sort']];
+
+        }
+
+        return R::getAll("SELECT p.*, pd.* FROM product p JOIN product_description pd on p.id = pd.product_id WHERE p.status = 1 AND p.category_id IN ($ids) AND pd.language_id = ? $order_buy LIMIT $start, $perpage", [$lang['id']]);
     }
 
     public function get_count_products($ids): int
