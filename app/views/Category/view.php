@@ -26,7 +26,7 @@
                 </div>
             <?php endif; ?>
 
-            <?php if(!empty($products) && count($products) > 1): ?>
+            <?php if($pagination->countPages > 1 || count($products) > 1): ?>
 
             <div class="row">
                 <div class="col-sm-6">
