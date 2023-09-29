@@ -34,7 +34,7 @@
                         <label class="input-group-text" for="input-sort"><?= __('category_view_sort')?></label>
                         <select class="form-select" id="input-sort">
                             <option selected=""><?= __('category_view_sort_by_default') ?></option>
-                            <option value="sort=title_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'title_asc') echo 'selected' ?>><?= __('category_view_sort_title_asc') ?></option>
+                            <option value="sort=title_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'title_asc') echo 'data' ?>><?= __('category_view_sort_title_asc') ?></option>
                             <option value="sort=title_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'title_desc') echo 'selected' ?>><?= __('category_view_sort_title_desc') ?></option>
                             <option value="sort=title_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'title_asc') echo 'selected' ?>><?= __('category_view_sort_price_asc') ?></option>
                             <option value="sort=price_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'title_asc') echo 'selected' ?>><?= __('category_view_sort_price_desc') ?></option>
