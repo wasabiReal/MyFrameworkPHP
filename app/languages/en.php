@@ -22,7 +22,10 @@ return [
     'tpl_worktime_desc' => 'no breaks and weekends',
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
-    'tpl_total_pagination' => 'product(s) from',
+    'tpl_total_pagination1' => 'products from',
+    'tpl_total_pagination2' => 'product from',
+    'tpl_total_pagination3' => 'products from',
+    'tpl_total_text' => 'Showed',
 
     'tpl_cart_title' => 'Basket',
     'tpl_cart_photo' => 'Photo',

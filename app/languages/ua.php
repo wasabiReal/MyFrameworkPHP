@@ -22,7 +22,10 @@ return [
     'tpl_worktime_desc' => 'без перерв та вихідних',
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
-    'tpl_total_pagination' => 'товара(ів) з',
+    'tpl_total_pagination1' => 'товарів з',
+    'tpl_total_pagination2' => 'товар з',
+    'tpl_total_pagination3' => 'товара з',
+    'tpl_total_text' => 'Показано',
 
     'tpl_cart_title' => 'Кошик',
     'tpl_cart_photo' => 'Фото',

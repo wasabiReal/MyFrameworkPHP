@@ -450,6 +450,12 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
 
 /* Category */
 
+.pag-count{
+	background-color: #ee6e73;
+	border-color: #ee6e73;
+	color: #fff;
+}
+
 /* Product */
 
 .thumbnail {
