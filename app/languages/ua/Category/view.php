@@ -8,6 +8,6 @@ return [
     'category_view_sort_by_default' => 'Сортування за замовчуванням',
     'category_view_sort_title_asc' => 'Назва (A-Я)',
     'category_view_sort_title_desc' => 'Назва (Я-А)',
-    'category_view_sort_price_asc' => 'Ціна (низька > висока)',
-    'category_view_sort_price_desc' => 'Ціна (висока > низька)',
+    'category_view_sort_price_asc' => 'Від дешевих до дорогих',
+    'category_view_sort_price_desc' => 'Від дорогих до дешевих',
 ];

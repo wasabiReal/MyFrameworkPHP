@@ -8,6 +8,6 @@ return [
     'category_view_sort_by_default' => 'Default sort',
     'category_view_sort_title_asc' => 'Name (A-Z)',
     'category_view_sort_title_desc' => 'Name (Z-A)',
-    'category_view_sort_price_asc' => 'Price (low > high)',
-    'category_view_sort_price_desc' => 'Price (high > low)',
+    'category_view_sort_price_asc' => 'From cheap to expensive',
+    'category_view_sort_price_desc' => 'From expensive to cheap',
 ];

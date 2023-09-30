@@ -454,6 +454,10 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
 	background-color: #ee6e73;
 	border-color: #ee6e73;
 	color: #fff;
+	margin: 0 10px;
+}
+.pag-count p{
+	margin: 0.3em 0;
 }
 
 /* Product */

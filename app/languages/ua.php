@@ -54,8 +54,6 @@ return [
     'tpl_signup_name_input' => 'Ім\'я',
     'tpl_signup_address_input' => 'Адреса',
 
-    'tpl_search_title' => 'Пошук',
-    'tpl_search_query' => 'Пошук за: ',
 
     'tpl_wishlist_add_success' => 'Товар додано в обране',
     'tpl_wishlist_add_error' => 'Помилка додавання товара в обране',

@@ -21,7 +21,6 @@ use wsb\View;
     <?= $this->getMeta(); ?>
 </head>
 <body>
-
 <header class="fixed-top">
     <div class="header-top py-3">
         <div class="container">
@@ -32,7 +31,7 @@ use wsb\View;
                     </a>
                 </div>
                 <div class="col text-end icons">
-                    <form>
+                    <form action="search">
                         <div class="input-group" id="search">
                             <input type="text" class="form-control" placeholder="<?= __('tpl_search') ?>" name="s">
                             <button class="btn close-search" type="button"><i class="fas fa-times"></i></i></button>
