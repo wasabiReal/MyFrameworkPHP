@@ -135,7 +135,7 @@ $(function() {
 		window.location = PATH + '/language/change?lang=' + lang_code;
 	});
 
-	$('.product-card').on('click', '.add-to-wishlist', function (e){
+	$('.product-card').on('click', '.add-to-wishlist', function (e) {
 		e.preventDefault();
 		const id = $(this).data('id');
 		const $this = $(this);
@@ -143,13 +143,14 @@ $(function() {
 			url: 'wishlist/add',
 			type: 'GET',
 			data: {id: id},
-			success: function (res){
+			success: function (res) {
 				res = JSON.parse(res);
-				console.log(res);
+				$this.removeClass('add-to-wishlist').addClass('delete-from-wishlist');
+				$this.find('i').removeClass('far fa-heart').addClass('fas fa-heart');
 			},
-			error: function (){
-				alert('Error!')
+			error: function () {
+				alert('Error!');
 			}
-		})
+		});
 	});
 });
