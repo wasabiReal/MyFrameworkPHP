@@ -1,6 +1,7 @@
 <?php
 
 use wsb\View;
+use app\widgets\page\Page;
 
 /** @var $this View */
 ?>
@@ -10,12 +11,15 @@ use wsb\View;
             <div class="row">
                 <div class="col-md-3 col-6">
                     <h4><?= __('tpl_information'); ?></h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><?= __('tpl_home_link'); ?></a></li>
-                        <li><a href="#"><?= __('tpl_about_us'); ?></a></li>
-                        <li><a href="#"><?= __('tpl_payment_and_delivery'); ?></a></li>
-                        <li><a href="#"><?= __('tpl_contacts'); ?></a></li>
-                    </ul>
+                    <!--                        <li><a href="#">--><?php //= __('tpl_home_link'); ?><!--</a></li>-->
+                    <!--                        <li><a href="#">--><?php //= __('tpl_about_us'); ?><!--</a></li>-->
+                    <!--                        <li><a href="#">--><?php //= __('tpl_payment_and_delivery'); ?><!--</a></li>-->
+                    <!--                        <li><a href="#">--><?php //= __('tpl_contacts'); ?><!--</a></li>-->
+                    <?php new Page([
+                        'cache' => 3600*60,
+                        'class' => 'list-unstyled',
+                        'prepend' => '<li><a href="' . base_url() . '">' . ___('tpl_home_link') . '</a></li>',
+                    ]) ?>
                 </div>
 
                 <div class="col-md-3 col-6">
@@ -63,15 +67,15 @@ use wsb\View;
     </div>
 </div>
 
-<?php if(DEBUG) $this->getDatabaseLogs()?>
+<?php if (DEBUG) $this->getDatabaseLogs() ?>
 <button id="top">
     <i class="fas fa-angle-double-up"></i>
 </button>
 <script> const PATH = '<?= PATH ?>';</script>
-<script src="<?= PATH?>/public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= PATH ?>/public/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="<?= PATH?>/public/assets/js/sweetalert2.js"></script>
-<script src="<?= PATH?>/public/assets/js/main.js"></script>
-<script src="<?= PATH?>/public/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="<?= PATH ?>/public/assets/js/sweetalert2.js"></script>
+<script src="<?= PATH ?>/public/assets/js/main.js"></script>
+<script src="<?= PATH ?>/public/assets/js/jquery.magnific-popup.min.js"></script>
 </body>
 </html>
