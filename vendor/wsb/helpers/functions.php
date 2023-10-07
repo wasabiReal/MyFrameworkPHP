@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use wsb\App;
 use wsb\Language;
@@ -100,4 +100,9 @@ function get_cart_icon($id)
         $icon = '<i class="fas fa-cart-plus"></i>';
     }
     return $icon;
+}
+
+function get_field_value($name)
+{
+    return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
 }

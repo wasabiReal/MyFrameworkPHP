@@ -17,7 +17,7 @@
 
                 <div class="col-md-6 offset-md-3">
                     <div class="form-floating mb-3">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value="<?= get_field_value('email') ?>">
                         <label class="required" for="email"><?php __('tpl_signup_email_input'); ?></label>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
 
                 <div class="col-md-6 offset-md-3">
                     <div class="form-floating mb-3">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="<?= get_field_value('name') ?>">
                         <label class="required" for="name"><?php __('tpl_signup_name_input'); ?></label>
                     </div>
                 </div>
 
                 <div class="col-md-6 offset-md-3">
                     <div class="form-floating mb-3">
-                        <input type="text" name="address" class="form-control" id="address" placeholder="Address">
+                        <input type="text" name="address" class="form-control" id="address" placeholder="Address" value="<?= get_field_value('address') ?>">
                         <label class="required" for="address"><?php __('tpl_signup_address_input'); ?></label>
                     </div>
                 </div>
@@ -48,6 +48,11 @@
                     <button type="submit" class="btn btn-danger"><?php __('user_signup_signup_btn'); ?></button>
                 </div>
             </form>
+            <?php
+            if(isset($_SESSION['form_data'])){
+                unset($_SESSION['form_data']);
+            }
+            ?>
 
         </div>
     </div>
