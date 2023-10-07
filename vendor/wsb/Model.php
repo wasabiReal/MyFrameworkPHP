@@ -1,7 +1,9 @@
 <?php
 
 namespace wsb;
-abstract class Model
+use Valitron\Validator;
+
+abstract class  Model
 {
     public array $attributes = [];
     public array $errors = [];
@@ -11,5 +13,19 @@ abstract class Model
     public function __construct()
     {
         Database::getInstance();
+    }
+
+    public function load($data)
+    {
+        foreach ($this->attributes as $name => $value){
+            if(isset($data[$name])){
+                $this->attributes[$name] = $data[$name];
+            }
+        }
+    }
+
+    public function validate($data): bool
+    {
+        $validator = new Validator($data);
     }
 }

@@ -2,6 +2,7 @@
 vendor/composer
 vendor/gabordemooij
 vendor/autoload.php
+vendor/vlucas
 tmp/
 config/
 public/assets/bootstrap/
