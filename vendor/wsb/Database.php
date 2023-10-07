@@ -2,6 +2,7 @@
 
 namespace wsb;
 
+use Exception;
 use RedBeanPHP\R;
 
 class Database
@@ -12,11 +13,11 @@ class Database
     {
         $db = require_once CONFIG . '/database.php';
         R::setup($db['dns'], $db['user'], $db['password']);
-        if(!R::testConnection()){
-            throw new \Exception('No connection to Database!', 500);
+        if (!R::testConnection()) {
+            throw new Exception('No connection to Database!', 500);
         }
         R::freeze(true);
-        if(DEBUG){
+        if (DEBUG) {
             R::debug(true, 3);
         }
     }

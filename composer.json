@@ -1,8 +1,8 @@
 {
   "autoload": {
     "psr-4": {
-      "wsb\\" : "vendor/wsb",
-      "app\\" : "app"
+      "wsb\\": "vendor/wsb",
+      "app\\": "app"
     }
   },
   "require": {

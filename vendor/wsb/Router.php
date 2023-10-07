@@ -2,6 +2,8 @@
 
 namespace wsb;
 
+use Exception;
+
 class Router
 {
     protected static array $routes = [];
@@ -19,12 +21,12 @@ class Router
 
     public static function removeQueryString($url)
     {
-        if($url){
+        if ($url) {
             $params = explode('?', $url, 2);
-            if(false === str_contains($params[0], '=')){
+            if (false === str_contains($params[0], '=')) {
                 return rtrim($params[0], '/');
             }
-        }else{
+        } else {
             return '';
         }
     }
@@ -32,12 +34,12 @@ class Router
     public static function dispatch($url)
     {
         $url = self::removeQueryString($url);
-        if(self::mathRoute($url)){
-            if(!empty(self::$route['lang'])){
+        if (self::mathRoute($url)) {
+            if (!empty(self::$route['lang'])) {
                 App::$app->setProperty('lang', self::$route['lang']);
             }
             $controller = 'app\controllers\\' . self::$route['admin_prefix'] . self::$route['controller'] . 'Controller';
-            if(class_exists($controller)){
+            if (class_exists($controller)) {
 
                 /** @var Controller $controllerObject */
                 $controllerObject = new $controller(self::$route);
@@ -45,37 +47,36 @@ class Router
                 $controllerObject->getModel();
 
                 $action = self::lowerCamelCase(self::$route['action'] . 'Action');
-                if(method_exists($controllerObject, $action)){
+                if (method_exists($controllerObject, $action)) {
                     $controllerObject->$action();
                     $controllerObject->getView();
+                } else {
+                    throw new Exception("Method {$controller}::{$action} didn't found", 404);
                 }
-                else{
-                    throw new \Exception("Method {$controller}::{$action} didn't found", 404);
-                }
-            }else{
-                throw new \Exception("Controller {$controller} didn't found", 404);
+            } else {
+                throw new Exception("Controller {$controller} didn't found", 404);
             }
 
-        }else{
-            throw new \Exception("Page didn't found", 404);
+        } else {
+            throw new Exception("Page didn't found", 404);
         }
     }
 
     public static function mathRoute($url): bool
     {
-        foreach(self::$routes as $pattern => $route){
-            if(preg_match("#{$pattern}#i", $url, $matches)){
+        foreach (self::$routes as $pattern => $route) {
+            if (preg_match("#{$pattern}#i", $url, $matches)) {
                 foreach ($matches as $k => $v) {
-                    if(is_string($k)){
+                    if (is_string($k)) {
                         $route[$k] = $v;
                     }
                 }
-                if(empty($route['action'])){
+                if (empty($route['action'])) {
                     $route['action'] = 'index';
                 }
-                if(!isset($route['admin_prefix'])){
+                if (!isset($route['admin_prefix'])) {
                     $route['admin_prefix'] = '';
-                }else{
+                } else {
                     $route['admin_prefix'] .= '\\';
                 }
                 $route['controller'] = self::upperCamelCase($route['controller']);

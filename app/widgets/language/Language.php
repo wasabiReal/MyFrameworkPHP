@@ -2,6 +2,7 @@
 
 namespace app\widgets\language;
 
+use Exception;
 use RedBeanPHP\R;
 use wsb\App;
 
@@ -32,13 +33,13 @@ class Language
     public static function getLanguage($languages)
     {
         $lang = App::$app->getProperty('lang');
-        if($lang && array_key_exists($lang, $languages)){
+        if ($lang && array_key_exists($lang, $languages)) {
             $key = $lang;
-        }elseif(!$lang){
+        } elseif (!$lang) {
             $key = key($languages);
-        }else{
+        } else {
             $lang = h($lang);
-            throw new \Exception('Not found lang <div style="text-transform:uppercase;">'. $lang . '</div>', 404);
+            throw new Exception('Not found lang <div style="text-transform:uppercase;">' . $lang . '</div>', 404);
         }
 
         $lang_info = $languages[$key];

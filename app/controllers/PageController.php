@@ -15,7 +15,7 @@ class PageController extends AppController
         $lang = App::$app->getProperty('language');
         $page = $this->model->get_page($this->route['slug'], $lang);
 
-        if(!$page){
+        if (!$page) {
             $this->error404();
             return;
         }

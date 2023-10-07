@@ -19,17 +19,18 @@
                         <td><a href="product/<?= $item['slug'] ?>"><?= $item['title'] ?></a></td>
                         <td><?= $item['qty'] ?></td>
                         <td>$<?= $item['price'] ?></td>
-                        <td><a href="cart/delete?id=<?= $id ?>" class="del-item" data-id="<?= $id ?>"><i class="far fa-trash-alt"></a></td>
+                        <td><a href="cart/delete?id=<?= $id ?>" class="del-item" data-id="<?= $id ?>"><i
+                                        class="far fa-trash-alt"></a></td>
                     </tr>
                 <?php endforeach; ?>
-                    <tr>
-                        <td colspan="4" class="text-end"><? __('tpl_cart_total_qty') ?></td>
-                        <td class="cart-qty"><?= $_SESSION['cart.qty'] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" class="text-end"><? __('tpl_cart_sum') ?></td>
-                        <td class="cart-sum">$<?= $_SESSION['cart.sum'] ?></td>
-                    </tr>
+                <tr>
+                    <td colspan="4" class="text-end"><? __('tpl_cart_total_qty') ?></td>
+                    <td class="cart-qty"><?= $_SESSION['cart.qty'] ?></td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-end"><? __('tpl_cart_sum') ?></td>
+                    <td class="cart-sum">$<?= $_SESSION['cart.sum'] ?></td>
+                </tr>
                 </tbody>
             </table>
         </div>

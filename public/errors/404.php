@@ -7,20 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>404</title>
     <style>
-        body{
+        body {
             font-family: Arial, Helvetica, sans-serif;
         }
-        .wrap{
+
+        .wrap {
             width: 1000px;
             margin: 0 auto;
         }
-        .logo{
+
+        .logo {
             width: 430px;
             position: absolute;
             top: 25%;
             left: 35%;
         }
-        p a{
+
+        p a {
             color: #eee;
             font-size: 13px;
             margin-left: 30px;
@@ -31,31 +34,34 @@
             -moz-border-radius: .3em;
             border-radius: .3em;
         }
-        p a:hover{
+
+        p a:hover {
             color: #fff;
         }
-        .footer{
+
+        .footer {
             position: absolute;
             bottom: 10px;
             right: 10px;
             font-size: 12px;
             color: #aaa;
         }
-        .footer a{
+
+        .footer a {
             color: #666;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <div class="logo">
-            <img src="/errors/images/404.png" alt="404">
-            <p><a href="<?=PATH;?>">Go back to Home page</a></p>
-        </div>
+<div class="wrap">
+    <div class="logo">
+        <img src="/errors/images/404.png" alt="404">
+        <p><a href="<?= PATH; ?>">Go back to Home page</a></p>
     </div>
-    <div class="footer">
-        Designed by <b>wasabireal.eth</b>
-    </div>
+</div>
+<div class="footer">
+    Designed by <b>wasabireal.eth</b>
+</div>
 </body>
 </html>

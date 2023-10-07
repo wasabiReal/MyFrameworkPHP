@@ -11,7 +11,8 @@ use wsb\Language;
 /** @property Main $model */
 class MainController extends AppController
 {
-    public function indexAction(){
+    public function indexAction()
+    {
 
         $language = App::$app->getProperty('language');
 

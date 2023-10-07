@@ -59,7 +59,7 @@ class View
     public function getMeta()
     {
         if (!empty($this->meta['title'])) {
-            $out = '<title>' .h($this->meta['title']) . ' - ' . App::$app->getProperty('site_name') . '</title>' . PHP_EOL;
+            $out = '<title>' . h($this->meta['title']) . ' - ' . App::$app->getProperty('site_name') . '</title>' . PHP_EOL;
         } else {
             $out = '<title>' . App::$app->getProperty('site_name') . '</title>' . PHP_EOL;
         }

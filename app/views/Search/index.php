@@ -1,8 +1,11 @@
 <?php
-/** @var $this \wfm\View */
+/** @var $this View */
 /** @var $products array */
 /** @var $total int */
 /** @var $pagination object */
+
+use wfm\View;
+
 ?>
 <div class="container">
     <nav aria-label="breadcrumb">
@@ -38,7 +41,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <?php if($pagination->countPages > 1): ?>
+                            <?php if ($pagination->countPages > 1): ?>
                                 <?= $pagination ?>
                             <?php endif; ?>
                         </div>

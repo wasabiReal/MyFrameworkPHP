@@ -6,13 +6,13 @@ class User extends AppModel
 {
 
     public array $attributes = [
-      'email' => '',
-      'password' => '',
-      'name' => '',
-      'address' => ''
+        'email' => '',
+        'password' => '',
+        'name' => '',
+        'address' => ''
     ];
 
-    public static function checkAuth():bool
+    public static function checkAuth(): bool
     {
         return isset($_SESSION['user']);
     }

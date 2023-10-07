@@ -7,7 +7,7 @@ use RedBeanPHP\R;
 class Cart extends AppModel
 {
 
-    public function getProduct($id, $lang):array
+    public function getProduct($id, $lang): array
     {
         return R::getRow("SELECT p.*, pd.* FROM product p JOIN product_description pd on p.id = pd.product_id 
         WHERE p.status = 1 AND p.id = ? AND pd.language_id = ?", [$id, $lang['id']]);
@@ -18,14 +18,14 @@ class Cart extends AppModel
     {
         $qty = abs($qty);
 
-        if($prod['is_download'] && isset($_SESSION['cart'][$prod['id']])){
+        if ($prod['is_download'] && isset($_SESSION['cart'][$prod['id']])) {
             return false;
         }
 
-        if(isset($_SESSION['cart'][$prod['id']])){
+        if (isset($_SESSION['cart'][$prod['id']])) {
             $_SESSION['cart'][$prod['id']]['qty'] += $qty;
-        }else{
-            if($prod['is_download']){
+        } else {
+            if ($prod['is_download']) {
                 $qty = 1;
             }
             $_SESSION['cart'][$prod['id']] = [
@@ -53,13 +53,13 @@ class Cart extends AppModel
 
     public static function translateCart($lang)
     {
-        if(empty($_SESSION['cart'])){
+        if (empty($_SESSION['cart'])) {
             return;
         }
         $ids = implode(',', array_keys($_SESSION['cart']));
         $products = R::getAll("SELECT p.id, pd.title FROM product p JOIN product_description pd on p.id = pd.product_id
         WHERE p.id IN ($ids) AND pd.language_id = ?", [$lang['id']]);
-        foreach ($products as $product){
+        foreach ($products as $product) {
             $_SESSION['cart'][$product['id']]['title'] = $product['title'];
         }
     }

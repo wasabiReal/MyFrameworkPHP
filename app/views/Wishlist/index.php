@@ -1,6 +1,9 @@
 <?php
-/** @var $this \wfm\View */
+/** @var $this View */
 /** @var $products array */
+
+use wfm\View;
+
 ?>
 <div class="container">
     <nav aria-label="breadcrumb">

@@ -13,10 +13,11 @@ use app\widgets\page\Page;
                     <h4><?= __('tpl_information'); ?></h4>
                     <!--                        <li><a href="#">--><?php //= __('tpl_home_link'); ?><!--</a></li>-->
                     <!--                        <li><a href="#">--><?php //= __('tpl_about_us'); ?><!--</a></li>-->
-                    <!--                        <li><a href="#">--><?php //= __('tpl_payment_and_delivery'); ?><!--</a></li>-->
+                    <!--                        <li><a href="#">-->
+                    <?php //= __('tpl_payment_and_delivery'); ?><!--</a></li>-->
                     <!--                        <li><a href="#">--><?php //= __('tpl_contacts'); ?><!--</a></li>-->
                     <?php new Page([
-                        'cache' => 3600*60,
+                        'cache' => 3600 * 60,
                         'class' => 'list-unstyled',
                         'prepend' => '<li><a href="' . base_url() . '">' . ___('tpl_home_link') . '</a></li>',
                     ]) ?>

@@ -15,19 +15,19 @@ class CartController extends AppController
         $id = get('id');
         $qty = get('qty');
 
-        if(!$id){
+        if (!$id) {
             return false;
         }
 
         $pd = $this->model->getProduct($id, $lang);
 
-        if(!$pd){
+        if (!$pd) {
             return false;
         }
 
         $this->model->addtoCart($pd, $qty);
 
-        if($this->isAjax()){
+        if ($this->isAjax()) {
             $this->loadView('cart_modal');
         }
         redirect();
@@ -37,10 +37,10 @@ class CartController extends AppController
     public function deleteAction()
     {
         $id = get('id');
-        if(isset($_SESSION['cart'][$id])){
+        if (isset($_SESSION['cart'][$id])) {
             $this->model->deleteItem($id);
         }
-        if($this->isAjax()){
+        if ($this->isAjax()) {
             $this->loadView('cart_modal');
         }
         redirect();
@@ -53,7 +53,7 @@ class CartController extends AppController
 
     public function clearAction()
     {
-        if(empty($_SESSION['cart'])){
+        if (empty($_SESSION['cart'])) {
             return false;
         }
         unset($_SESSION['cart']);

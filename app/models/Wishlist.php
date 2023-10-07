@@ -18,7 +18,7 @@ class Wishlist extends AppModel
     {
         $wishlist = self::get_wishlist_ids();
         if (!$wishlist) {
-            setcookie('wishlist', $id, time() + 3600*24*7*30, '/');
+            setcookie('wishlist', $id, time() + 3600 * 24 * 7 * 30, '/');
         } else {
             if (!in_array($id, $wishlist)) {
                 if (count($wishlist) > 5) {
@@ -26,7 +26,7 @@ class Wishlist extends AppModel
                 }
                 $wishlist[] = $id;
                 $wishlist = implode(',', $wishlist);
-                setcookie('wishlist', $wishlist, time() + 3600*24*7*30, '/');
+                setcookie('wishlist', $wishlist, time() + 3600 * 24 * 7 * 30, '/');
             }
         }
     }
@@ -59,13 +59,13 @@ class Wishlist extends AppModel
     {
         $wishlist = self::get_wishlist_ids();
         $key = array_search($id, $wishlist);
-        if(false !== $key){
+        if (false !== $key) {
             unset($wishlist[$key]);
-            if($wishlist){
+            if ($wishlist) {
                 $wishlist = implode(',', $wishlist);
-                setcookie('wishlist', $wishlist, time() + 3600*24*7*30, '/');
-            }else{
-                setcookie('wishlist', '', time()-3600, '/');
+                setcookie('wishlist', $wishlist, time() + 3600 * 24 * 7 * 30, '/');
+            } else {
+                setcookie('wishlist', '', time() - 3600, '/');
             }
             return true;
         }

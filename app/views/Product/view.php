@@ -13,12 +13,12 @@
             <h1><?= $product['title'] ?></h1>
 
             <ul class="list-unstyled">
-                <?php if($product['status']): ?>
+                <?php if ($product['status']): ?>
                     <li><i class="fas fa-check text-success"></i> <?= __('product_view_availability') ?></li>
                     <li><i class="fas fa-hand-holding-usd"></i>
-                    <span class="product-price">
-                        <?php if($product['old_price']): ?>
-                        <small>$ <?= $product['old_price'] ?></small>
+                        <span class="product-price">
+                        <?php if ($product['old_price']): ?>
+                            <small>$ <?= $product['old_price'] ?></small>
                         <?php endif; ?>
                         $<?= $product['price'] ?></li>
                 <?php endif; ?>
@@ -27,7 +27,8 @@
             <div id="product">
                 <div class="input-group mb-3">
                     <input id="input-quantity" type="number" class="form-control" name="quantity" value="1" step="1">
-                    <button class="btn btn-danger add-to-cart" type="button" data-id="<?= $product['id'] ?>"><?= __('product_view_buy') ?></button>
+                    <button class="btn btn-danger add-to-cart" type="button"
+                            data-id="<?= $product['id'] ?>"><?= __('product_view_buy') ?></button>
                 </div>
             </div>
 
@@ -36,12 +37,16 @@
         <div class="col-md-8 order-md-1">
 
             <ul class="thumbnails list-unstyled clearfix">
-                <li class="thumb-main text-center"><a class="thumbnail" href="<?= PATH . $product['img'] ?>" data-effect="mfp-zoom-in"><img src="<?= PATH . $product['img'] ?>" alt="<?= $product['title'] ?>"></a></li>
-                <?php if(!empty($gallery)): ?>
-                <?php foreach ($gallery as $item): ?>
-                <li class="thumb-additional"><a class="thumbnail" href="<?= PATH . $item['img'] ?>" data-effect="mfp-zoom-in">
-                        <img src="<?= PATH . $item['img'] ?>" alt=""></a></li>
-                <?php endforeach; ?>
+                <li class="thumb-main text-center"><a class="thumbnail" href="<?= PATH . $product['img'] ?>"
+                                                      data-effect="mfp-zoom-in"><img src="<?= PATH . $product['img'] ?>"
+                                                                                     alt="<?= $product['title'] ?>"></a>
+                </li>
+                <?php if (!empty($gallery)): ?>
+                    <?php foreach ($gallery as $item): ?>
+                        <li class="thumb-additional"><a class="thumbnail" href="<?= PATH . $item['img'] ?>"
+                                                        data-effect="mfp-zoom-in">
+                                <img src="<?= PATH . $item['img'] ?>" alt=""></a></li>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </ul>
 

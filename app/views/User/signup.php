@@ -24,7 +24,8 @@
 
                 <div class="col-md-6 offset-md-3">
                     <div class="form-floating mb-3">
-                        <input type="password" name="password" class="form-control" id="password" placeholder="password">
+                        <input type="password" name="password" class="form-control" id="password"
+                               placeholder="password">
                         <label class="required" for="password"><?php __('tpl_signup_password_input'); ?></label>
                     </div>
                 </div>

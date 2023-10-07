@@ -14,7 +14,7 @@ class ProductController extends AppController
         $lang = App::$app->getProperty('language');
         $product = $this->model->get_product($this->route['slug'], $lang);
 
-        if(!$product){
+        if (!$product) {
             $this->error404();
             return;
         }

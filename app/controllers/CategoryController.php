@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+
 use app\models\Breadcrumbs;
 use app\models\Category;
 use wsb\Pagination;
@@ -16,7 +17,7 @@ class CategoryController extends AppController
         $lang = App::$app->getProperty('language');
         $category = $this->model->get_category($this->route['slug'], $lang);
 
-        if(!$category){
+        if (!$category) {
             $this->error404();
             return;
         }

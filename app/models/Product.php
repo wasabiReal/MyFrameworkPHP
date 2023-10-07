@@ -12,7 +12,7 @@ class Product extends AppModel
            WHERE p.status = 1 AND p.slug = ? AND pd.language_id = ?", [$slug, $lang['id']]);
     }
 
-    public function get_gallery($product_id):array
+    public function get_gallery($product_id): array
     {
         return R::getAll("SELECT * FROM product_gallery WHERE product_id = ?", [$product_id]);
     }

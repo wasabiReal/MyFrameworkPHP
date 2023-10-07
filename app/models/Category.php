@@ -38,7 +38,7 @@ class Category extends AppModel
         ];
 
         $order_buy = '';
-        if(isset($_GET['sort']) && array_key_exists($_GET['sort'], $sort_values)){
+        if (isset($_GET['sort']) && array_key_exists($_GET['sort'], $sort_values)) {
             $order_buy = $sort_values[$_GET['sort']];
 
         }

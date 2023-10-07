@@ -17,11 +17,11 @@ class Language
         $lang_layout = APP . "/languages/{$code}.php";
         $lang_view = APP . "/languages/{$code}/{$view['controller']}/{$view['action']}.php";
 
-        if(file_exists($lang_layout)){
+        if (file_exists($lang_layout)) {
             self::$lang_layout = require_once $lang_layout;
         }
 
-        if(file_exists($lang_view)){
+        if (file_exists($lang_view)) {
             self::$lang_view = require_once $lang_view;
         }
 

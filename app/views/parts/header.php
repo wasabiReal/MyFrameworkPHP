@@ -1,5 +1,8 @@
 <?php
 
+use app\widgets\language\Language;
+use app\widgets\menu\Menu;
+use wsb\App;
 use wsb\View;
 
 /** @var $this View */
@@ -11,13 +14,14 @@ use wsb\View;
     <base href="<?= base_url(); ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?= PATH?>/public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= PATH ?>/public/assets/bootstrap/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= PATH?>/public/assets/css/main.css">
-    <link rel="stylesheet" href="<?= PATH?>/public/assets/css/magnific-popup.css">
-    <link rel="icon" href="<?= PATH?>/public/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+          integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= PATH ?>/public/assets/css/main.css">
+    <link rel="stylesheet" href="<?= PATH ?>/public/assets/css/magnific-popup.css">
+    <link rel="icon" href="<?= PATH ?>/public/favicon.ico">
     <?= $this->getMeta(); ?>
 </head>
 <body>
@@ -53,17 +57,17 @@ use wsb\View;
                             <i class="far fa-user"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <?php if(empty($_SESSION['user'])): ?>
-                            <li><a class="dropdown-item" href="user/login"><?= __('tpl_login') ?></a></li>
-                            <li><a class="dropdown-item" href="user/signup"><?= __('tpl_signup')  ?></a></li>
+                            <?php if (empty($_SESSION['user'])): ?>
+                                <li><a class="dropdown-item" href="user/login"><?= __('tpl_login') ?></a></li>
+                                <li><a class="dropdown-item" href="user/signup"><?= __('tpl_signup') ?></a></li>
                             <?php else: ?>
                                 <li><a class="dropdown-item" href="user/cabinet"><?= __('tpl_cabinet') ?></a></li>
-                                <li><a class="dropdown-item" href="user/logout"><?= __('tpl_logout')  ?></a></li>
+                                <li><a class="dropdown-item" href="user/logout"><?= __('tpl_logout') ?></a></li>
                             <?php endif; ?>
                         </ul>
                     </div>
 
-                    <?php new \app\widgets\language\Language(); ?>
+                    <?php new Language(); ?>
 
                 </div>
             </div>
@@ -75,14 +79,17 @@ use wsb\View;
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand" href="<?= base_url() ?>"><?= \wsb\App::$app->getProperty('site_name'); ?></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand"
+                       href="<?= base_url() ?>"><?= App::$app->getProperty('site_name'); ?></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <?php new \app\widgets\menu\Menu([
-                                'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
-                                'cache' => 600,
+                        <?php new Menu([
+                            'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
+                            'cache' => 600,
                         ]) ?>
                     </div>
                 </div>

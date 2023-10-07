@@ -2,14 +2,16 @@
 
 namespace wsb;
 
+use Throwable;
+
 class ErrorHandler
 {
 
     public function __construct()
     {
-        if(DEBUG){
+        if (DEBUG) {
             error_reporting(-1);
-        }else{
+        } else {
             error_reporting(0);
         }
         set_exception_handler([$this, 'exceptionHandler']);
@@ -28,19 +30,19 @@ class ErrorHandler
     public function fatalErrorHandler()
     {
         $error = error_get_last();
-        if(!empty($error) && $error['type'] & (E_ERROR | E_PARSE | E_COMPILE_ERROR | E_CORE_ERROR)){
+        if (!empty($error) && $error['type'] & (E_ERROR | E_PARSE | E_COMPILE_ERROR | E_CORE_ERROR)) {
             $this->logErrors($error['message'], $error['file'], $error['line']);
             ob_end_clean();
             $this->displayError($error['type'], $error['message'], $error['file'], $error['line']);
-        }else{
+        } else {
             ob_end_flush();
         }
     }
 
-    public function exceptionHandler(\Throwable $e)
+    public function exceptionHandler(Throwable $e)
     {
         $this->logErrors($e->getMessage(), $e->getFile(), $e->getLine());
-        $this->displayError('Exception', $e->getMessage() ,$e->getFile(), $e->getLine(), $e->getCode());
+        $this->displayError('Exception', $e->getMessage(), $e->getFile(), $e->getLine(), $e->getCode());
     }
 
     protected function logErrors($message = '', $file = '', $line = '')
@@ -53,17 +55,17 @@ class ErrorHandler
 
     protected function displayError($errornum, $errorstr, $errorfile, $errorline, $responce = 500)
     {
-        if($responce == 0){
+        if ($responce == 0) {
             $responce = 404;
         }
         http_response_code($responce);
-        if($responce == 404 && !DEBUG){
+        if ($responce == 404 && !DEBUG) {
             require WWW . '/errors/404.php';
             die;
         }
-        if(DEBUG){
+        if (DEBUG) {
             require WWW . '/errors/development.php';
-        }else{
+        } else {
             require WWW . '/errors/production.php';
         }
     }

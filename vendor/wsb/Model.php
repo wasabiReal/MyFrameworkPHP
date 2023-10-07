@@ -1,6 +1,7 @@
 <?php
 
 namespace wsb;
+
 use Valitron\Validator;
 
 abstract class  Model
@@ -17,8 +18,8 @@ abstract class  Model
 
     public function load($data)
     {
-        foreach ($this->attributes as $name => $value){
-            if(isset($data[$name])){
+        foreach ($this->attributes as $name => $value) {
+            if (isset($data[$name])) {
                 $this->attributes[$name] = $data[$name];
             }
         }

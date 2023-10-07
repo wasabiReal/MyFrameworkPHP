@@ -86,7 +86,7 @@ function pagination_total($count)
         echo ___('tpl_total_pagination2');
     } elseif ($d > 1 and $d < 5 and !($h > 11 and $h < 15)) {
         echo ___('tpl_total_pagination3');
-    }else{
+    } else {
         echo ___('tpl_total_pagination1');
     }
 }
