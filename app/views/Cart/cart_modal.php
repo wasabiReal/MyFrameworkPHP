@@ -43,6 +43,6 @@
             data-bs-dismiss="modal"><?= __('tpl_cart_btn_continue'); ?></button>
     <?php if (!empty($_SESSION['cart'])): ?>
         <button type="button" class="btn btn-danger" id="cart-clear"><?= __('tpl_cart_btn_clear') ?></button>
-        <button type="button" class="btn btn-primary"><?= __('tpl_cart_btn_order') ?></button>
+        <a href="cart/view" class="btn btn-primary"><?= __('tpl_cart_btn_order') ?></a>
     <?php endif; ?>
 </div>

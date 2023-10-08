@@ -18,13 +18,17 @@ $(function () {
     $('#cart-modal .modal-cart-content').on('click', '.del-item', function (e) {
         e.preventDefault();
         const id = $(this).data('id');
-
         $.ajax({
             url: 'cart/delete',
             type: 'GET',
             data: {id: id},
             success: function (res) {
-                showCart(res);
+                const url = window.location.toString();
+                if (url.indexOf('cart/view') !== -1) {
+                    window.location = url;
+                }else{
+                    showCart(res);
+                }
             },
             error: function () {
                 alert('Deletion failed..');
