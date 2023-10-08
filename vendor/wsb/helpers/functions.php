@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 use wsb\App;
 use wsb\Language;
