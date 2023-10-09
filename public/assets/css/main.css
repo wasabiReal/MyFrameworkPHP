@@ -19,6 +19,11 @@ label.required::before{
     font-weight: bold;
 }
 
+.alert,
+.breadcrumb{
+    margin-top: 10px;
+}
+
 img {
     max-width: 100%;
     height: auto;

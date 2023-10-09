@@ -6,3 +6,4 @@ vendor/vlucas
 tmp/
 config/
 public/assets/bootstrap/
+/vendor/phpmailer/
