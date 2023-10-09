@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Order;
 use app\models\User;
 use wsb\App;
 use app\models\Cart;
@@ -73,6 +74,9 @@ class CartController extends AppController
     {
         if(!empty($_POST)){
             if(!User::checkAuth()){
+
+                // Register the user if he is not registered.
+
                 $user = new User();
                 $data = $_POST;
                 $user->load($data);
@@ -87,6 +91,18 @@ class CartController extends AppController
                         redirect();
                     }
                 }
+            }
+
+            // Save the order
+
+            $data['user_id'] = $user_id ?? $_SESSION['user']['id'];
+            $data['note'] = post('note');
+            $user_email = $_SESSION['user']['email'] ?? post('email');
+
+            if(!$order_id = Order::saveOrder($data)){
+                $_SESSION['errors'] = ___('cart_checkout_error_save_order');
+            }else{
+                $_SESSION['success'] = ___('cart_checkout_order_success');
             }
         }
         redirect();
