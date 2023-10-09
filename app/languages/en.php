@@ -55,9 +55,6 @@ return [
     'tpl_signup_name_input' => 'Name',
     'tpl_signup_address_input' => 'Address',
 
-    'tpl_search_title' => 'Search',
-    'tpl_search_query' => 'Search by: ',
-    'tpl_search_empty' => 'Nothing was found for your request',
 
     'tpl_wishlist_add_success' => 'Product added to favorites',
     'tpl_wishlist_add_error' => 'Error adding product to favorites',

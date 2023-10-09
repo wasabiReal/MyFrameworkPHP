@@ -34,7 +34,7 @@ use wfm\View;
                 <?php if (!empty($products)): ?>
 
                     <div class="pag-count col-lg-12 col-sm-12 mb-3">
-                        <p><?= __('tpl_total_text') ?> <?= count($products) ?> <?= pagination_total(count($products)) ?> <?= $total ?></p>
+                        <p><?= __('tpl_total_text') ?> <?= count($products) ?> <?= word_form(count($products), 'tpl_total_pagination') ?> <?= $total ?></p>
                     </div>
 
                     <?php $this->getPart('products_loop', compact('products')); ?>

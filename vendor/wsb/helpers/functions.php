@@ -78,16 +78,16 @@ function ___($key)
     return Language::get($key);
 }
 
-function pagination_total($count)
+function word_form($count, $phrase)
 {
     $d = $count % 10;
     $h = $count % 100;
     if ($d == 1 and $h != 11) {
-        echo ___('tpl_total_pagination2');
+        echo ___($phrase . '2');
     } elseif ($d > 1 and $d < 5 and !($h > 11 and $h < 15)) {
-        echo ___('tpl_total_pagination3');
+        echo ___($phrase . '3');
     } else {
-        echo ___('tpl_total_pagination1');
+        echo ___($phrase . '1');
     }
 }
 

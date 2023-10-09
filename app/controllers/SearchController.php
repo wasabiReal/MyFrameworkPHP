@@ -21,7 +21,7 @@ class SearchController extends AppController
         $start = $pagination->getStart();
 
         $products = $this->model->get_find_products($s, $lang, $start, $perpage);
-        $this->setMeta(___('tpl_search_title'));
+        $this->setMeta(___('search_index_title'));
         $this->set(compact('s', 'products', 'pagination', 'total'));
     }
 
