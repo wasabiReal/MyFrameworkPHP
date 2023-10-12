@@ -78,11 +78,10 @@ class CartController extends AppController
                 // Register the user if he is not registered.
 
                 $user = new User();
-                $data = $_POST;
-                $user->load($data);
-                if(!$user->validate($data) || !$user->checkUnique()){
+                $user->load();
+                if(!$user->validate($user->attributes) || !$user->checkUnique()){
                     $user->getErrors();
-                    $_SESSION['form_data'] = $data;
+                    $_SESSION['form_data'] = $user->attributes;
                     redirect();
                 }else{
                     $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
