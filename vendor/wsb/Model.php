@@ -79,7 +79,7 @@ abstract class  Model
     {
         $tbl = R::load($table, $id);
         foreach ($this->attributes as $name => $value){
-            if(!$value != ''){
+            if($value != ''){
                 $tbl->$name = $value;
             }
         }

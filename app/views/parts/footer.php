@@ -11,16 +11,13 @@ use app\widgets\page\Page;
             <div class="row">
                 <div class="col-md-3 col-6">
                     <h4><?= __('tpl_information'); ?></h4>
-                    <!--                        <li><a href="#">--><?php //= __('tpl_home_link'); ?><!--</a></li>-->
-                    <!--                        <li><a href="#">--><?php //= __('tpl_about_us'); ?><!--</a></li>-->
-                    <!--                        <li><a href="#">-->
-                    <?php //= __('tpl_payment_and_delivery'); ?><!--</a></li>-->
-                    <!--                        <li><a href="#">--><?php //= __('tpl_contacts'); ?><!--</a></li>-->
+
                     <?php new Page([
                         'cache' => 3600 * 60,
                         'class' => 'list-unstyled',
                         'prepend' => '<li><a href="' . base_url() . '">' . ___('tpl_home_link') . '</a></li>',
                     ]) ?>
+
                 </div>
 
                 <div class="col-md-3 col-6">

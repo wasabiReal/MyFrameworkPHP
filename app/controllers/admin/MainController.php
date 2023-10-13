@@ -4,10 +4,12 @@ namespace app\controllers\admin;
 
 use wsb\Controller;
 
-class MainController extends Controller
+class MainController extends AppController
 {
     public function indexAction()
     {
-        echo '<h1>Admin page</h1>';
+        $title = 'Головна сторінка';
+        $this->setMeta('adminka');
+        $this->set(compact('title'));
     }
 }

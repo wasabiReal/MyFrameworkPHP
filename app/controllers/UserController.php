@@ -39,11 +39,12 @@ class UserController extends AppController
     public function credentialsAction()
     {
         if (!User::checkAuth()) {
-            redirect(base_url() . '/user/login');
+            redirect(base_url() . 'user/login');
         }
 
         if (!empty($_POST)) {
             $this->model->load();
+
             if (empty($this->model->attributes['password'])){
                 unset($this->model->attributes['password']);
             }
