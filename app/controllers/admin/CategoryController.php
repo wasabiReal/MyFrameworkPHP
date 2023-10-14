@@ -36,4 +36,19 @@ class CategoryController extends AppController
         redirect();
     }
 
+    public function addAction()
+    {
+        if (!empty($_POST)) {
+            if ($this->model->category_validate()) {
+                $_SESSION['success'] = 'Категорію збережено';
+            } else {
+
+            }
+            redirect();
+        }
+        $title = 'Створення категорії';
+        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->set(compact('title'));
+    }
+
 }

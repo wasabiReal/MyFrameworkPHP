@@ -106,3 +106,8 @@ function get_field_value($name)
 {
     return isset($_SESSION['form_data'][$name]) ? h($_SESSION['form_data'][$name]) : '';
 }
+
+function get_field_array_value($name, $key, $index)
+{
+    return isset($_SESSION['form_data'][$name][$key][$index]) ? h($_SESSION['form_data'][$name][$key][$index]) : '';
+}
