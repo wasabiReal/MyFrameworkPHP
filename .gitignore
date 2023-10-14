@@ -7,3 +7,5 @@ tmp/
 config/
 public/assets/bootstrap/
 /vendor/phpmailer/
+/public/adminlte/dist/
+/public/adminlte/plugins/
