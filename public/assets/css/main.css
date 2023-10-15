@@ -13,7 +13,23 @@ body {
     padding-top: 130px;
 }
 
-label.required::before{
+.image-style-align-center {
+    text-align: center;
+}
+
+.image-style-align-left {
+    float: left;
+    margin-right: 20px;
+    max-width: 50%;
+}
+
+.image-style-align-right {
+    float: right;
+    margin-left: 20px;
+    max-width: 50%;
+}
+
+label.required::before {
     content: "* ";
     color: #f00;
     font-weight: bold;

@@ -9,3 +9,6 @@ public/assets/bootstrap/
 /vendor/phpmailer/
 /public/adminlte/dist/
 /public/adminlte/plugins/
+/public/adminlte/ckeditor/
+/public/adminlte/ckfinder/
+/public/uploads/.ckfinder/
