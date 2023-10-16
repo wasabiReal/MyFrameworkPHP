@@ -61,7 +61,14 @@ class CategoryController extends AppController
     {
         $id = get('id');
         if(!empty($_POST)){
-
+            if($this->model->category_validate()){
+                if($this->model->update_category($id)){
+                    $_SESSION['success'] = 'Категорію оновлено';
+                }else{
+                    $_SESSION['errors'] = 'Виникла помилка!';
+                }
+            }
+            redirect();
         }
         $category = $this->model->get_category($id);
         if(!$category){

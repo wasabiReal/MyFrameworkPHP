@@ -1,7 +1,6 @@
 $(function () {
 
     // Cart
-
     function showCart(cart) {
         $('#cart-modal .modal-cart-content').html(cart);
         const myModalCart = document.querySelector('#cart-modal');

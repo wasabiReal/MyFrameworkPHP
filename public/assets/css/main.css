@@ -35,6 +35,12 @@ label.required::before {
     font-weight: bold;
 }
 
+.category-desc::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
 .alert,
 .breadcrumb{
     margin-top: 10px;
