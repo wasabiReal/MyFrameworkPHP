@@ -78,16 +78,20 @@ function ___($key)
     return Language::get($key);
 }
 
-function word_form($count, $phrase)
+function word_form($count, $phrase = '', $text = 'товарів з')
 {
     $d = $count % 10;
     $h = $count % 100;
-    if ($d == 1 and $h != 11) {
-        echo ___($phrase . '2');
-    } elseif ($d > 1 and $d < 5 and !($h > 11 and $h < 15)) {
-        echo ___($phrase . '3');
-    } else {
-        echo ___($phrase . '1');
+    if($phrase != ''){
+        if ($d == 1 and $h != 11) {
+            echo ___($phrase . '2');
+        } elseif ($d > 1 and $d < 5 and !($h > 11 and $h < 15)) {
+            echo ___($phrase . '3');
+        } else {
+            echo ___($phrase . '1');
+        }
+    }else{
+        return $count . ' ' . $text;
     }
 }
 

@@ -10,7 +10,38 @@ body {
     color: #000;
     background-color: #fff;
     min-width: 320px;
-    padding-top: 130px;
+    padding-top: 35px;
+}
+
+
+.navbar-nav{
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.col{
+    margin-top: 2px;
+}
+
+.nav-link{
+    padding: 0;
+}
+
+a.nav-link{
+    text-decoration: none;
+}
+
+a.nav-link:active, a.nav-link:focus {
+    color: #fff;
+    outline: none;
+}
+a.nav-link::-moz-focus-inner {
+    border: 0;
+}
+
+ul.dropdown-menu{
+    background-color: #ee6e73;
+    padding: 5px;
 }
 
 .image-style-align-center {
@@ -137,12 +168,12 @@ a:focus {
 }
 
 li a.dropdown-item {
-    color: #000;
+    color: #fff;
 }
 
 li a.dropdown-item:focus, li a.dropdown-item:hover {
     background-color: #ee6e73;
-    color: #fff;
+    color: #000;
 }
 
 .btn-danger {
@@ -193,7 +224,7 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
 }
 
 .header-top .icons i {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .header-top .icon-phone {
@@ -251,8 +282,11 @@ li a.dropdown-item:focus, li a.dropdown-item:hover {
     color: #ee6e73;
 }
 
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 0.1rem;
+/*.navbar-toggler:focus {*/
+/*    box-shadow: 0 0 0 0.1rem;*/
+/*}*/
+.navbar-toggler{
+    font-size: 1em;
 }
 
 .navbar-light .navbar-brand {

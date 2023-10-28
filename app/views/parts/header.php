@@ -26,13 +26,31 @@ use wsb\View;
 </head>
 <body>
 <header class="fixed-top">
-    <div class="header-top py-3">
+    <div class="header-top py-1">
         <div class="container">
             <div class="row justify-content-between">
+<!--                <div class="col">-->
+<!--                    <a href="tel:5551234567">-->
+<!--                        <span class="icon-phone">&#9743;</span> 555 123-45-67-->
+<!--                    </a>-->
+<!--                </div>-->
                 <div class="col">
-                    <a href="tel:5551234567">
-                        <span class="icon-phone">&#9743;</span> 555 123-45-67
-                    </a>
+                    <a class="navbar-brand"
+                       href="<?= base_url() ?>"><?= App::$app->getProperty('site_name'); ?></a>
+
+                </div>
+                <div class="col" style="text-align: center;">
+<!--                    <button class="navbar-toggler navbar-light bg-lignt" type="button" data-bs-toggle="collapse"-->
+<!--                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"-->
+<!--                            aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                        <span class="navbar-toggler-icon"></span>-->
+<!--                    </button>-->
+                    <div class="navbar-collapse" id="navbarSupportedContent">
+                        <?php new Menu([
+                            'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
+                            'cache' => 600,
+                        ]) ?>
+                    </div>
                 </div>
                 <div class="col text-end icons">
                     <form action="search">
@@ -74,26 +92,14 @@ use wsb\View;
         </div>
     </div><!-- header-top -->
 
-    <div class="header-bottom py-2">
-        <div class="container">
-
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid p-0">
-                    <a class="navbar-brand"
-                       href="<?= base_url() ?>"><?= App::$app->getProperty('site_name'); ?></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <?php new Menu([
-                            'class' => 'navbar-nav ms-auto mb-2 mb-lg-0',
-                            'cache' => 600,
-                        ]) ?>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+<!--    <div class="header-bottom py-2">-->
+<!--        <div class="container">-->
+<!---->
+<!--            <nav class="navbar navbar-expand-lg navbar-light">-->
+<!--                <div class="container-fluid p-0">-->
+<!---->
+<!--                </div>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
 </header>
