@@ -91,7 +91,7 @@ function word_form($count, $phrase = '', $text = 'товарів з')
             echo ___($phrase . '1');
         }
     }else{
-        return $count . ' ' . $text;
+        return ' ' . $text;
     }
 }
 

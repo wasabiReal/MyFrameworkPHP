@@ -23,6 +23,7 @@ class AppController extends Controller
         $lang = App::$app->getProperty('language');
         \wsb\Language::load($lang['code'], $this->route);
 
+
         $categories = R::getAssoc("SELECT c.*, cd.* FROM category c
                         JOIN category_desc cd
                         ON c.id = cd.category_id
