@@ -2,6 +2,10 @@ body {
     min-width: 320px;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
 
 a {
     color: #ee6e73;
@@ -35,6 +39,7 @@ a:hover {
 .upload-images img {
     border: 2px solid #ccc;
     padding: 3px;
+    max-height: 200px;
 }
 
 .product-img-upload {
@@ -52,4 +57,14 @@ a:hover {
     left: 0;
     top: 0;
     font-size: 30px;
+}
+
+.card-body td img{
+    max-height: 100px;
+}
+
+label.required::before{
+    content: '* ';
+    color: #F00;
+    font-weight: bold;
 }

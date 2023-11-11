@@ -68,7 +68,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <p><?= word_form(count($products)); ?> <?= $total ?></p>
+                    <p><?= count($products); ?> <?= word_form(count($products)); ?> <?= $total ?></p>
                     <?php if ($pagination->countPages > 1): ?>
                         <?= $pagination; ?>
                     <?php endif; ?>
@@ -76,7 +76,7 @@
             </div>
 
         <?php else: ?>
-            <p>Товаров не найдено...</p>
+            <p>Не знайдено жодного товару...</p>
         <?php endif; ?>
 
     </div>

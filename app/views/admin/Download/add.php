@@ -5,15 +5,15 @@
 
         <form action="" class="form-horizontal" method="post" enctype="multipart/form-data">
 
-            <?php foreach (\wfm\App::$app->getProperty('languages') as $k => $lang): ?>
+            <?php foreach (\wsb\App::$app->getProperty('languages') as $k => $lang): ?>
 
                 <div class="form-group row">
                     <label for="name" class="col-sm-3 col-form-label required">
-                        <img src="<?= PATH ?>/assets/img/lang/<?= $k ?>.png" alt="">
-                        Наименование
+                        <img src="<?= PATH ?>/public/assets/img/lang/<?= $k ?>.png" alt="">
+                        Позначення
                     </label>
                     <div class="col-sm-9">
-                        <input type="text" name="download_description[<?= $lang['id'] ?>][name]" class="form-control" id="name" placeholder="Наименование файла">
+                        <input type="text" name="download_description[<?= $lang['id'] ?>][name]" class="form-control" id="name" placeholder="Позначення файла">
                     </div>
 
                 </div>
@@ -22,7 +22,7 @@
 
             <hr>
 
-            <span class="text-info">Допустимые для загрузки расширения: jpg, jpeg, png, zip, pdf, txt</span>
+            <span class="text-info">Доступні для завантаження формати: jpg, jpeg, png, zip, pdf, txt</span>
             <div class="input-group">
                 <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
@@ -34,7 +34,7 @@
             </div>
 
             <br>
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="submit" class="btn btn-primary">Зберегти</button>
 
 
         </form>

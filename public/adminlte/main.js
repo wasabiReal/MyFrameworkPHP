@@ -33,7 +33,7 @@ $(function (){
 
     $('#is_download').on('select2:select', function () {
         $('.clear-download').remove();
-        $('#is_download').before('<p class="clear-download"><span class="btn btn-danger">Звичайний товар</span></p>');
+        $('#is_download').before('<p class="clear-download"><span class="btn btn-danger">Зробити товар не цифровим</span></p>');
     });
 
     $('body').on('click', '.clear-download span', function () {
@@ -45,5 +45,8 @@ $(function (){
         const parentDiv = $(this).closest('.product-img-upload').remove();
         return false;
     });
+
+    bsCustomFileInput.init();
+
 
 });

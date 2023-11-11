@@ -29,4 +29,31 @@ class DownloadController extends AppController
     }
 
 
+    public function addAction()
+    {
+        if(!empty($_POST)){
+            if($this->model->download_validate()){
+                if($data = $this->model->upload_file()){
+                    if($this->model->save_download($data)){
+                        $_SESSION['success'] = 'Файл було додано успішно';
+                    }else {
+                        $_SESSION['errors'] = 'Помилка завантаження файла';
+                    }
+                }else {
+                    $_SESSION['errors'] = 'Помилка переміщення файла';
+                }
+            }
+            redirect();
+        }
+
+        $title = 'Додавання файлу';
+        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->set(compact('title'));
+    }
+
+
+    public function deleteAction()
+    {
+
+    }
 }

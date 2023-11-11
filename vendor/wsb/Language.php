@@ -17,7 +17,6 @@ class Language
         $lang_layout = APP . "/languages/{$code}.php";
         $lang_view = APP . "/languages/{$code}/{$view['controller']}/{$view['action']}.php";
 
-        debug($lang_view, 1);
 
         if (file_exists($lang_layout)) {
             self::$lang_layout = require_once $lang_layout;
