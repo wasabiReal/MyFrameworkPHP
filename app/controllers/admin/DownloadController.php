@@ -24,7 +24,7 @@ class DownloadController extends AppController
 
         $downloads = $this->model->get_downloads($lang, $start, $perpage);
         $title = 'Файли';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title', 'downloads', 'pagination', 'total'));
     }
 
@@ -47,7 +47,7 @@ class DownloadController extends AppController
         }
 
         $title = 'Додавання файлу';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title'));
     }
 

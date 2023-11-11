@@ -22,7 +22,7 @@ class ProductController extends AppController
 
         $products = $this->model->get_products($lang, $start, $perpage);
         $title = 'Список товарів';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title', 'products', 'pagination', 'pagination', 'total'));
 
     }
@@ -41,7 +41,7 @@ class ProductController extends AppController
         }
 
         $title = 'Новий товар';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title'));
     }
 
@@ -78,7 +78,7 @@ class ProductController extends AppController
         $lang = App::$app->getProperty('language')['id'];
         App::$app->setProperty('parent_id', $product[$lang]['category_id']);
         $title = 'Редагування товару';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title', 'product', 'gallery'));
     }
 

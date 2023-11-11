@@ -13,7 +13,7 @@ class CategoryController extends AppController
     public function indexAction()
     {
         $title = 'Категорії';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title'));
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends AppController
             redirect();
         }
         $title = 'Створення категорії';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title'));
     }
 
@@ -77,7 +77,7 @@ class CategoryController extends AppController
         $lang = App::$app->getProperty('language')['id'];
         App::$app->setProperty('parent_id', $category[$lang]['parent_id']);
         $title = 'Редагування категорії';
-        $this->setMeta("Панель адміністратора :: {$title}");
+        $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title', 'category'));
     }
 
