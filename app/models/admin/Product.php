@@ -196,7 +196,7 @@ class Product extends AppModel{
 
             $download_info = self::get_product_download($id);
             $product[$key]['download_id'] = $download_info['download_id'];
-            $product[$key]['download_name'] = $download_info['download_name'];
+            $product[$key]['download_name'] = $download_info['name'];
         }
 
         return $product;
@@ -206,7 +206,7 @@ class Product extends AppModel{
     public function get_product_download($product_id): array
     {
         $lang_id = App::$app->getProperty('language')['id'];
-        return R::getRow("SELECT pd.download_id, dd.name FROM product_description pd JOIN download_description dd ON pd.download_id = dd.download_id
+        return R::getRow("SELECT pd.download_id, dd.name FROM product_download pd JOIN download_description dd ON pd.download_id = dd.download_id
                             WHERE pd.product_id = ? AND dd.language_id = ?", [$product_id, $lang_id]);
     }
 

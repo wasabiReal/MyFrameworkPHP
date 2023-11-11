@@ -54,6 +54,26 @@ class DownloadController extends AppController
 
     public function deleteAction()
     {
-
+        $id = get('id');
+        if(R::count('order_download', 'download_id = ?', [$id])){
+            $_SESSION['errors'] = 'Видалення не можливе. Файл було куплено користувачами!';
+            redirect();
+        }
+        if(R::count('product_download', 'download_id = ?', [$id])){
+            $_SESSION['errors'] = 'Видалення не можливе. Файл прикріплено до товару!';
+            redirect();
+        }
+        if($this->model->download_delete($id)){
+            $_SESSION['success'] = 'Файл було видалено.';
+        }else{
+            $_SESSION['errors'] = 'Помилка видалення файлу!';
+        }
+        redirect();
     }
+
+
+
 }
+
+
+
