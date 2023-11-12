@@ -23,26 +23,26 @@
                 </tr>
                 <tr>
                     <td>Роль</td>
-                    <td><?= $user['role'] == 'user' ? 'Пользователь' : 'Администратор' ?></td>
+                    <td><?= $user['role'] == 'user' ? 'Користувач' : 'Адміністратор' ?></td>
                 </tr>
                 </tbody>
             </table>
-            <a href="<?= ADMIN ?>/user/edit?id=<?= $user['id'] ?>" class="btn btn-flat btn-secondary">Редактировать профиль</a>
+            <a href="<?= ADMIN ?>/user/edit?id=<?= $user['id'] ?>" class="btn btn-flat btn-secondary">Редагувати профіль</a>
         </div>
     </div>
 
     <div class="card-body">
         <?php if (!empty($orders)): ?>
-            <h3>Заказы пользователя</h3>
+            <h3>Замовлення користувача</h3>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>ID заказа</th>
+                        <th>ID замовлення</th>
                         <th>Статус</th>
-                        <th>Создан</th>
-                        <th>Изменен</th>
-                        <th>Сумма</th>
+                        <th>Створено</th>
+                        <th>Змінено</th>
+                        <th>Сума</th>
                         <td width="50"><i class="fas fa-pencil-alt"></i></td>
                     </tr>
                     </thead>
@@ -51,11 +51,11 @@
                         <tr <?php if ($order['status']) echo 'class="table-info"' ?>>
                             <td><?= $order['id'] ?></td>
                             <td>
-                                <?= $order['status'] ? 'Завершен' : 'Новый' ?>
+                                <?= $order['status'] ? 'Завершений' : 'Новий' ?>
                             </td>
                             <td><?= $order['created_at'] ?></td>
                             <td><?= $order['updated_at'] ?></td>
-                            <td>$<?= $order['total'] ?></td>
+                            <td><b>$<?= $order['total'] ?></b></td>
                             <td width="50">
                                 <a class="btn btn-info btn-sm" href="<?= ADMIN ?>/order/edit?id=<?= $order['id'] ?>">
                                     <i class="fas fa-pencil-alt"></i>
@@ -69,7 +69,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <p><?= count($orders) ?> заказ(ов) из: <?= $total; ?></p>
+                    <p><?= count($orders) ?> замовлень із: <?= $total; ?></p>
                     <?php if ($pagination->countPages > 1): ?>
                         <?= $pagination; ?>
                     <?php endif; ?>
@@ -77,7 +77,7 @@
             </div>
 
         <?php else: ?>
-            <p>Пользователь пока не делал заказов...</p>
+            <p>Користувач не виконував замовлень...</p>
         <?php endif; ?>
 
     </div>

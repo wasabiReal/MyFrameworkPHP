@@ -17,5 +17,10 @@ class User extends \app\models\User
         return R::findAll("user", "LIMIT $start, $perpage");
     }
 
+    public function get_user($id): array
+    {
+        return R::getRow("SELECT * FROM user WHERE id = ?", [$id]);
+    }
+
 
 }

@@ -56,4 +56,26 @@ class UserController extends AppController
         $this->set(compact('title', 'pagination', 'total', 'users'));
     }
 
+    public function viewAction()
+    {
+        $id = get('id');
+
+        $user = $this->model->get_user($id);
+        if(!$user){
+            throw new \Exception("Not found user by ID: {$id}", 404);
+        }
+
+        $page = get('page');
+        $perpage = 5;
+        $total = $this->model->getCountOrders($id);
+        $pagination = new Pagination($page, $perpage, $total);
+        $start = $pagination->getStart();
+
+        $orders = $this->model->getUserOrders($start, $perpage, $id);
+
+        $title = 'Користувачі';
+        $this->setMeta("{$title} :: Панель адміністратора");
+        $this->set(compact('title', 'pagination', 'total', 'user', 'orders'));
+    }
+
 }
