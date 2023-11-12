@@ -2,6 +2,8 @@
 
 namespace app\models\admin;
 
+use RedBeanPHP\R;
+
 class User extends \app\models\User
 {
 
@@ -9,5 +11,11 @@ class User extends \app\models\User
     {
         return isset($_SESSION['user']) && $_SESSION['user']['role'] == 'admin';
     }
+
+    public function get_users($start, $perpage): array
+    {
+        return R::findAll("user", "LIMIT $start, $perpage");
+    }
+
 
 }
