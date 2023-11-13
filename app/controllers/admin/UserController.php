@@ -114,6 +114,34 @@ class UserController extends AppController
 
     }
 
+    public function addAction()
+    {
+        if(!empty($_POST)){
+            $this->model->load();
+
+            if(!$this->model->validate($this->model->attributes) || !$this->model->checkUnique("Ця почта вже зареєстрована")){
+                $this->model->getErrors();
+                $_SESSION['form_data'] = $_POST;
+            }else{
+                $this->model->attributes['password'] = password_hash($this->model->attributes['password'], PASSWORD_DEFAULT);
+                if($this->model->save('user')){
+                    $_SESSION['success'] = 'Користувача створено!';
+                }else {
+                    $_SESSION['errors'] = 'Помилка створення користувача!';
+                }
+            }
+            redirect();
+        }
+
+
+        $title = 'Створення користувача';
+        $this->setMeta("{$title} :: Панель адміністратора");
+        $this->set(compact('title'));
+    }
+
+
+
+
 }
 
 
