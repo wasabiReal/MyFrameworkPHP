@@ -73,9 +73,47 @@ class UserController extends AppController
 
         $orders = $this->model->getUserOrders($start, $perpage, $id);
 
-        $title = 'Користувачі';
+        $title = $user['name'];
         $this->setMeta("{$title} :: Панель адміністратора");
         $this->set(compact('title', 'pagination', 'total', 'user', 'orders'));
     }
 
+    public function editAction()
+    {
+        $id = get('id');
+
+        $user = $this->model->get_user($id);
+        if(!$user){
+            throw new \Exception("Not found user by ID: {$id}", 404);
+        }
+
+        if(!empty($_POST)){
+            $this->model->load();
+            if(empty($this->model->attributes['password'])){
+                unset($this->model->attributes['password']);
+            }
+
+            if(!$this->model->validate($this->model->attributes) || !$this->model->checkEmail($user)){
+                $this->model->getErrors();
+            }else{
+                if(!empty($this->model->attributes['password'])){
+                    $this->model->attributes['password'] = password_hash($this->model->attributes['password'], PASSWORD_DEFAULT);
+                }
+                if($this->model->update('user', $id)){
+                    $_SESSION['success'] = 'Дані оновлено';
+                }else{
+                    $_SESSION['errors'] = 'Помилка оновлення профіля користувача.';
+                }
+            }
+            redirect();
+        }
+
+        $title = 'Редагування користувача';
+        $this->setMeta("{$title} :: Панель адміністратора");
+        $this->set(compact('title', 'user'));
+
+    }
+
 }
+
+
