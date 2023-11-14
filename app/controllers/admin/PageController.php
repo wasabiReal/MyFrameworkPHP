@@ -38,5 +38,28 @@ class PageController extends AppController
         redirect();
     }
 
+    public function addAction()
+    {
+        if(!empty($_POST)){
+            if($this->model->page_validate()){
+                if($this->model->save_page()){
+                    $_SESSION['success'] = 'Сторінка створена!';
+                }else{
+                    $_SESSION['errors'] = 'Помилка створення сторінки!';
+                }
+            }
+            redirect();
+        }
+        $title = 'Створення сторінки';
+        $this->setMeta("{$title} :: Панель адміністратора");
+        $this->set(compact('title'));
+    }
+
+    public function editAction()
+    {
+
+    }
 
 }
+
+

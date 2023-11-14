@@ -54,7 +54,6 @@ class Product extends AppModel{
             $_SESSION['form_data'] = $_POST;
             return false;
         }
-
         return true;
     }
 
