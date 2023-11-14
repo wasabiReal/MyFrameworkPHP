@@ -57,8 +57,29 @@ class PageController extends AppController
 
     public function editAction()
     {
+        $id = get('id');
 
+        if(!empty($_POST)){
+            if($this->model->page_validate()){
+                if($this->model->update_page($id)){
+                    $_SESSION['success'] = 'Сторінка успішно оновлена!';
+                }else{
+                    $_SESSION['errors'] = 'Не вдалось оновити сторінку!';
+                }
+            }
+            redirect();
+        }
+        $page = $this->model->get_page($id);
+        if(!$page){
+            throw new \Exception("Not found page", 404);
+        }
+
+        $title = 'Редагування сторінки';
+        $this->setMeta("{$title} :: Панель адміністратора");
+        $this->set(compact('title', 'page'));
     }
+
+
 
 }
 

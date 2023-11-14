@@ -85,8 +85,67 @@ class Page extends AppModel
             $_SESSION['form_data'] = $_POST;
             return false;
         }
+    }
 
+    public function get_page($id): array
+    {
+        return R::getAssoc("SELECT pd.language_id, pd.*, p.* FROM page_description pd JOIN page p on pd.page_id = p.id WHERE pd.page_id = ?", [$id]);
+    }
 
+    public function update_page($id): bool
+    {
+        R::begin();
+        try {
+            $page = R::load('page', $id);
+            if(!$page){
+                return false;
+            }
+            // page_description
+            foreach ($_POST['page_description'] as $lang_id => $item){
+                R::exec("UPDATE page_description SET title = ?, content = ?, keywords = ?, description = ? WHERE page_id = ? AND language_id = ?",
+                    [
+                        $item['title'],
+                        $item['content'],
+                        $item['keywords'],
+                        $item['description'],
+                        $id,
+                        $lang_id,
+                    ]);
+            }
+
+            // product_gallery if exist
+
+            if(!isset($_POST['gallery'])){
+                R::exec("DELETE FROM product_gallery WHERE product_id = ?", [$id]);
+            }
+
+            if(isset($_POST['gallery']) && is_array($_POST['gallery'])){
+                $gallery = self::get_gallery($id);
+
+                if((count($gallery) != count($_POST['gallery'])) || array_diff($gallery, $_POST['gallery']) || array_diff($_POST['gallery'], $gallery)){
+                    R::exec("DELETE FROM product_gallery WHERE product_id = ?", [$id]);
+                    $sql = "INSERT INTO product_gallery (product_id, img) VALUES ";
+                    foreach ($_POST['gallery'] as $item){
+                        $sql .= "({$id}, ?),";
+                    }
+                    $sql = rtrim($sql, ',');
+                    R::exec($sql, $_POST['gallery']);
+                }
+            }
+
+            // product_download if is_download
+            R::exec("DELETE FROM product_download WHERE product_id = ?", [$id]);
+            if($product->is_download){
+                $download_id = post('is_download', 'i');
+                R::exec("INSERT INTO product_download (product_id, download_id) VALUES (?,?)", [$product_id, $download_id]);
+            }
+
+            R::commit();
+            return true;
+        }catch (\Exception $e){
+            R::rollback();
+            return false;
+        }
     }
 
 }
